@@ -11,5 +11,5 @@ docker compose run --rm artisan route:cache || die "Route caching failed."
 docker compose run --rm artisan view:cache || die "View caching failed."
 
 echo "Running migrations..."
-docker compose run --rm artisan migrate
+docker compose run --rm artisan migrate --force
 echo "************* Done *************"
