@@ -1,3 +1,4 @@
+git reset --hard
 git pull origin main
 
 docker compose down
@@ -5,6 +6,8 @@ docker compose up -d
 
 echo "Installing dependencies..."
 docker compose run --rm composer install --no-dev --optimize-autoloader || die "Composer install failed."
+
+docker compose run --rm artisan storage:link || die "Storage link failed."
 
 docker compose run --rm artisan config:cache || die "Config caching failed."
 docker compose run --rm artisan route:cache || die "Route caching failed."
