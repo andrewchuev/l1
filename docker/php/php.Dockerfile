@@ -8,8 +8,6 @@ RUN mkdir -p /var/www/html
 
 ADD ./src/ /var/www/html
 
-RUN git config --global --add safe.directory /var/www/html
-
 RUN docker-php-ext-install pdo pdo_mysql
 
 RUN chown -R laravel:laravel /var/www/html
